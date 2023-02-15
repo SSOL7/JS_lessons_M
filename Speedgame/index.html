@@ -11,9 +11,9 @@
 
     <h1>Test how fast you can click on 3 boxes, which change order after you click them</h1>
     <div class="container">
-        <div class="box1" id="box1"></div>
-        <div class="box2" id="box2"></div>
-        <div class="box3" id="box3"></div>
+        <div class="box1" id="box1" onclick="startgame(this.id)"></div>
+        <div class="box2" id="box2" onclick="startgame(this.id)"></div>
+        <div class="box3" id="box3" onclick="startgame(this.id)"></div>
     </div>
 
 
@@ -23,14 +23,65 @@
         let box1 = document.getElementById("box1");
         let box2 = document.getElementById("box2");
         let box3 = document.getElementById("box3");
-
         let boxes = [box1, box2, box3];
-
         let randomBox = Math.floor(Math.random() * boxes.length);
-
         boxes[randomBox].style.backgroundColor = "red";
+        let clicked = false;
 
-        // setinterval function to change
+        // setInterval for changing the color of the boxes
+
+        function startgame(id) {
+            if (clicked === false) {
+                setInterval(() => {
+                    boxes[randomBox].style.backgroundColor = "white";
+                    randomBox = Math.floor(Math.random() * boxes.length);
+                    boxes[randomBox].style.backgroundColor = "red";
+                    console.log(id);
+                }, 1000);
+                clicked = true;
+            }
+        }
+
+        
+        setInterval(() => {
+            box1.addEventListener("click", () => {
+                if (boxes[randomBox] === box1) {
+                    console.log("correct");
+                    boxes[randomBox].style.backgroundColor = "white";
+                    randomBox = Math.floor(Math.random() * boxes.length);
+                    boxes[randomBox].style.backgroundColor = "red";
+                } else {
+                    console.log("wrong");
+                }
+            });
+            
+            box2.addEventListener("click", () => {
+                if (boxes[randomBox] === box2) {
+                    console.log("correct");
+                    boxes[randomBox].style.backgroundColor = "white";
+                    randomBox = Math.floor(Math.random() * boxes.length);
+                    boxes[randomBox].style.backgroundColor = "red";
+                } else {
+                    console.log("wrong");
+                }
+            });
+            
+            box3.addEventListener("click", () => {
+                if (boxes[randomBox] === box3) {
+                    console.log("correct");
+                    boxes[randomBox].style.backgroundColor = "white";
+                    randomBox = Math.floor(Math.random() * boxes.length);
+                    boxes[randomBox].style.backgroundColor = "red";
+                } else {
+                    console.log("wrong");
+                }
+            });
+        }, 1000);
+
+        
+
+
+
 
     </script>
 </body>
