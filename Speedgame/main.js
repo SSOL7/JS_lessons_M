@@ -8,7 +8,7 @@ const overlay = document.querySelector('.overlay');
 let score = 10;
 let active = 0;
 let timer = 0;
-let pace = 4000;
+let pace = 2000;
 let rounds = 0;
 
     circles.forEach((circle, i) => {
@@ -50,7 +50,6 @@ let rounds = 0;
         const nextActive = pickNew(active);
         active = nextActive;
         circles[nextActive].classList.toggle('active');
-        // circles[active].classList.remove('active');
 
         console.log('Active Circle', active);
 
